@@ -1,0 +1,1903 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Jean-David Waeber</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-dark: #000000;
+            --primary-light: #1a1a1a;
+            --secondary-light: #2a2a2a;
+            --accent-primary: #333333;
+            --accent-subtle: #4a4a4a;
+            --accent-gold: #c9a96e;
+            --accent-gold-light: #d4b676;
+            --text-primary: #ffffff;
+            --text-secondary: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --text-subtle: #808080;
+            --bg-section: #0a0a0a;
+            --bg-card: #151515;
+            --border-subtle: #2a2a2a;
+            --border-light: #3a3a3a;
+            
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-accent: 'Crimson Text', serif;
+            
+            --text-xs: 0.75rem;
+            --text-sm: 0.875rem;
+            --text-base: 1rem;
+            --text-lg: 1.125rem;
+            --text-xl: 1.25rem;
+            --text-2xl: 1.5rem;
+            --text-3xl: 1.875rem;
+            --text-4xl: 2.25rem;
+            --text-5xl: 3rem;
+            --text-6xl: 3.75rem;
+            
+            --leading-tight: 1.25;
+            --leading-snug: 1.375;
+            --leading-normal: 1.5;
+            --leading-relaxed: 1.625;
+            --leading-loose: 2;
+            
+            --tracking-tighter: -0.05em;
+            --tracking-tight: -0.025em;
+            --tracking-normal: 0em;
+            --tracking-wide: 0.025em;
+            --tracking-wider: 0.05em;
+            --tracking-widest: 0.1em;
+            
+            --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.6);
+            --shadow-intense: 0 16px 64px rgba(0, 0, 0, 0.8);
+            --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.5);
+            --shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.3);
+            
+            /* Animations optimisées avec GPU acceleration */
+            --transition-lightning: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-smooth: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            --transition-elastic: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --transition-gentle: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--bg-section) 100%);
+            color: var(--text-primary);
+            line-height: var(--leading-relaxed);
+            overflow-x: hidden;
+            font-size: var(--text-base);
+            letter-spacing: var(--tracking-normal);
+            font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            /* GPU acceleration pour smooth scrolling */
+            transform: translateZ(0);
+            will-change: scroll-position;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: var(--shadow-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            letter-spacing: var(--tracking-tight);
+        }
+
+        .logo:hover {
+            color: var(--accent-gold);
+            transform: scale(1.02);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition-smooth);
+            position: relative;
+            padding: 0.5rem 0;
+            font-size: var(--text-sm);
+            letter-spacing: var(--tracking-wide);
+            text-transform: uppercase;
+        }
+
+        .nav-menu a.active,
+        .nav-menu a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--text-primary);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        /* Header Section */
+        .header {
+            padding: 8rem 0 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, var(--text-primary) 0%, transparent 70%);
+            opacity: 0.03;
+            z-index: 1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .header-title {
+            font-family: var(--font-serif);
+            font-size: var(--text-5xl);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            line-height: var(--leading-tight);
+            letter-spacing: var(--tracking-tight);
+        }
+
+        .header-subtitle {
+            font-size: var(--text-xl);
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: var(--leading-relaxed);
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Contact Methods */
+        .contact-methods {
+            padding: 4rem 0;
+            background: var(--bg-section);
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .methods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .method-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid var(--border-subtle);
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            /* GPU acceleration */
+            transform: translateZ(0);
+            will-change: transform, box-shadow;
+            backface-visibility: hidden;
+        }
+
+        .method-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--accent-gold) 0%, transparent 70%);
+            opacity: 0;
+            transition: var(--transition-gentle);
+            transform: scale(0);
+            will-change: transform, opacity;
+        }
+
+        .method-card:hover::before {
+            opacity: 0.04;
+            transform: scale(1);
+        }
+
+        .method-card:hover {
+            transform: translateY(-12px) translateZ(0);
+            box-shadow: var(--shadow-intense);
+            border-color: var(--border-light);
+        }
+
+        .method-icon {
+            font-size: 3rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+            transition: var(--transition-elastic);
+            /* GPU optimization */
+            transform: translateZ(0);
+            will-change: transform;
+        }
+
+        .method-card:hover .method-icon {
+            transform: scale(1.25) rotate(8deg) translateZ(0);
+        }
+
+        .method-title {
+            font-family: var(--font-serif);
+            font-size: var(--text-xl);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            letter-spacing: var(--tracking-tight);
+        }
+
+        .method-description {
+            color: var(--text-secondary);
+            line-height: var(--leading-relaxed);
+            margin-bottom: 1.5rem;
+        }
+
+        .method-action {
+            padding: 0.8rem 1.5rem;
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            text-decoration: none;
+            display: inline-block;
+            letter-spacing: var(--tracking-wide);
+            text-transform: uppercase;
+            font-size: var(--text-sm);
+            /* Performance optimization */
+            transform: translateZ(0);
+            will-change: transform, background-color;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .method-action::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: var(--transition-smooth);
+        }
+
+        .method-action:hover::before {
+            left: 100%;
+        }
+
+        .method-action:hover {
+            background: var(--accent-gold-light);
+            transform: scale(1.08) translateZ(0);
+            box-shadow: 0 8px 25px rgba(201, 169, 110, 0.4);
+        }
+
+        .method-action:active {
+            transform: scale(1.02) translateZ(0);
+            transition: var(--transition-lightning);
+        }
+
+        /* Contact Forms */
+        .contact-forms {
+            padding: 4rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: var(--text-4xl);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            line-height: var(--leading-tight);
+            letter-spacing: var(--tracking-tight);
+        }
+
+        .section-subtitle {
+            font-size: var(--text-lg);
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: var(--leading-relaxed);
+        }
+
+        .forms-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-form {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid var(--border-subtle);
+            transition: var(--transition-smooth);
+            /* GPU acceleration */
+            transform: translateZ(0);
+            will-change: transform, box-shadow, border-color;
+            opacity: 1;
+        }
+
+        .contact-form:hover {
+            box-shadow: var(--shadow-card);
+            border-color: var(--border-light);
+            transform: translateY(-3px) translateZ(0);
+        }
+
+        /* Animation d'entrée pour les formulaires */
+        .contact-form {
+            animation: slideInUp 0.6s ease-out backwards;
+        }
+
+        .contact-form:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .contact-form:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .contact-form:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px) translateZ(0);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) translateZ(0);
+            }
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-icon {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .form-title {
+            font-family: var(--font-serif);
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            letter-spacing: var(--tracking-tight);
+        }
+
+        .form-description {
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: var(--text-sm);
+            letter-spacing: var(--tracking-wide);
+            text-transform: uppercase;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 1rem;
+            background: var(--secondary-light);
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-size: var(--text-base);
+            transition: var(--transition-smooth);
+            font-family: var(--font-sans);
+            /* Performance optimization */
+            transform: translateZ(0);
+            will-change: border-color, box-shadow, background-color;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.25);
+            background: var(--accent-primary);
+            transform: translateZ(0) scale(1.01);
+        }
+
+        /* Animation de focus fluide */
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            animation: focusPulse 0.3s ease-out;
+        }
+
+        @keyframes focusPulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(201, 169, 110, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 0 6px rgba(201, 169, 110, 0.2);
+            }
+            100% {
+                box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.25);
+            }
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+            line-height: var(--leading-relaxed);
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            font-size: var(--text-base);
+            letter-spacing: var(--tracking-wide);
+            text-transform: uppercase;
+            font-family: var(--font-sans);
+            /* Performance optimization */
+            transform: translateZ(0);
+            will-change: transform, background-color, box-shadow;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-submit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: var(--transition-smooth);
+        }
+
+        .form-submit:hover::before {
+            left: 100%;
+        }
+
+        .form-submit:hover {
+            background: var(--accent-gold-light);
+            transform: translateY(-4px) translateZ(0);
+            box-shadow: 0 12px 35px rgba(201, 169, 110, 0.4);
+        }
+
+        .form-submit:active {
+            transform: translateY(-1px) translateZ(0);
+            transition: var(--transition-lightning);
+        }
+
+        /* Contact Info */
+        .contact-info {
+            padding: 4rem 0;
+            background: var(--bg-section);
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .info-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid var(--border-subtle);
+            transition: var(--transition-smooth);
+            /* GPU acceleration */
+            transform: translateZ(0);
+            will-change: transform, box-shadow;
+        }
+
+        .info-card:hover {
+            transform: translateY(-8px) translateZ(0);
+            box-shadow: var(--shadow-card);
+            border-color: var(--border-light);
+        }
+
+        /* Animation d'apparition pour les cartes info */
+        .info-card {
+            opacity: 0;
+            animation: fadeInScale 0.6s ease-out forwards;
+        }
+
+        .info-card:nth-child(1) { animation-delay: 0.1s; }
+        .info-card:nth-child(2) { animation-delay: 0.2s; }
+        .info-card:nth-child(3) { animation-delay: 0.3s; }
+        .info-card:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(20px) translateZ(0);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0) translateZ(0);
+            }
+        }
+
+        .info-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-icon {
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(201, 169, 110, 0.1);
+            border-radius: 50%;
+        }
+
+        .info-title {
+            font-family: var(--font-serif);
+            font-size: var(--text-xl);
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: var(--tracking-tight);
+        }
+
+        .info-content {
+            color: var(--text-secondary);
+            line-height: var(--leading-relaxed);
+        }
+
+        .info-content p {
+            margin-bottom: 0.5rem;
+        }
+
+        .info-content a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        .info-content a:hover {
+            color: var(--accent-gold-light);
+            text-decoration: underline;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .newsletter-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 3rem;
+            border: 1px solid var(--border-subtle);
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent-gold) 0%, transparent 100%);
+            opacity: 0.05;
+            z-index: 1;
+        }
+
+        .newsletter-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .newsletter-icon {
+            font-size: 3rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-title {
+            font-family: var(--font-serif);
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            letter-spacing: var(--tracking-tight);
+        }
+
+        .newsletter-description {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: var(--leading-relaxed);
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            min-width: 200px;
+            padding: 1rem;
+            background: var(--secondary-light);
+            border: 1px solid var(--border-subtle);
+            border-radius: 25px;
+            color: var(--text-primary);
+            font-size: var(--text-base);
+            transition: var(--transition-smooth);
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.2);
+        }
+
+        .newsletter-submit {
+            padding: 1rem 2rem;
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            white-space: nowrap;
+            letter-spacing: var(--tracking-wide);
+            text-transform: uppercase;
+            font-size: var(--text-sm);
+            /* GPU acceleration */
+            transform: translateZ(0);
+            will-change: transform, background-color;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter-submit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: var(--transition-smooth);
+        }
+
+        .newsletter-submit:hover::before {
+            left: 100%;
+        }
+
+        .newsletter-submit:hover {
+            background: var(--accent-gold-light);
+            transform: scale(1.08) translateZ(0);
+            box-shadow: 0 8px 25px rgba(201, 169, 110, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-title {
+                font-size: var(--text-4xl);
+            }
+
+            .forms-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .contact-form {
+                padding: 2rem;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-input {
+                min-width: auto;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+        }
+
+        /* Success States - Animations améliorées */
+        .form-success {
+            background: rgba(40, 167, 69, 0.1);
+            border: 1px solid #28a745;
+            color: #28a745;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            text-align: center;
+            display: none;
+            transform: translateZ(0);
+        }
+
+        .form-success.show {
+            display: block;
+            animation: successSlide 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes successSlide {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px) scale(0.9) translateZ(0);
+            }
+            50% {
+                transform: translateY(-5px) scale(1.05) translateZ(0);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1) translateZ(0);
+            }
+        }
+
+        /* Loading States - Améliorés */
+        .form-loading {
+            opacity: 0.7;
+            pointer-events: none;
+            filter: grayscale(0.3);
+            transition: var(--transition-smooth);
+        }
+
+        .form-submit.loading {
+            position: relative;
+            color: transparent;
+        }
+
+        .form-submit.loading::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 2px solid transparent;
+            border-top: 2px solid var(--primary-dark);
+            border-radius: 50%;
+            animation: smoothSpin 0.8s linear infinite;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes smoothSpin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* Validation Error States */
+        .form-input.error,
+        .form-select.error,
+        .form-textarea.error {
+            border-color: #dc3545;
+            box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.25);
+            animation: errorShake 0.4s ease-in-out;
+        }
+
+        @keyframes errorShake {
+            0%, 100% { transform: translateX(0) translateZ(0); }
+            25% { transform: translateX(-5px) translateZ(0); }
+            75% { transform: translateX(5px) translateZ(0); }
+        }
+
+        /* Scroll-triggered animations */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px) translateZ(0);
+            transition: var(--transition-gentle);
+        }
+
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateY(0) translateZ(0);
+        }
+
+        /* Performance optimizations */
+        .method-card,
+        .contact-form,
+        .info-card,
+        .newsletter-card {
+            contain: layout style paint;
+        }
+
+        /* Reduced motion for accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            .method-card:hover,
+            .contact-form:hover,
+            .info-card:hover {
+                transform: none;
+            }
+        }
+
+        .form-submit.loading {
+            position: relative;
+        }
+
+        .form-submit.loading::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 2px solid transparent;
+            border-top: 2px solid var(--primary-dark);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Jean-David Waeber</a>
+            <ul class="nav-menu">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#biographie">Biographie</a></li>
+                <li><a href="#repertoire">Répertoire</a></li>
+                <li><a href="#agenda">Agenda</a></li>
+                <li><a href="#galerie">Galerie</a></li>
+                <li><a href="#media">Média</a></li>
+                <li><a href="#contact" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="header">
+        <div class="header-content">
+            <h1 class="header-title">Contact</h1>
+            <p class="header-subtitle">
+                Pour toute collaboration artistique, engagement ou projet pédagogique, 
+                je serais ravi d'échanger avec vous.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Methods -->
+    <section class="contact-methods">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Comment me contacter ?</h2>
+                <p class="section-subtitle">Choisissez la méthode qui correspond le mieux à votre demande</p>
+            </div>
+            
+            <div class="methods-grid">
+                <div class="method-card" onclick="scrollToForm('concert')">
+                    <div class="method-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+
+                <!-- Education Form -->
+                <div class="contact-form" id="education-form">
+                    <div class="form-header">
+                        <div class="form-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="form-title">Formation & Enseignement</h3>
+                        <p class="form-description">Masterclasses, cours particuliers et formation musicale</p>
+                    </div>
+                    
+                    <form class="education-form" onsubmit="submitForm(event, 'education')">
+                        <div class="form-group">
+                            <label class="form-label">Type de formation</label>
+                            <select class="form-select" name="training_type" required>
+                                <option value="">Sélectionnez le type</option>
+                                <option value="masterclass">Masterclass</option>
+                                <option value="cours-particulier">Cours particulier</option>
+                                <option value="direction-chorale">Direction chorale</option>
+                                <option value="orgue">Orgue</option>
+                                <option value="musique-ancienne">Musique ancienne</option>
+                                <option value="maitrisienne">École maîtrisienne</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Niveau</label>
+                            <select class="form-select" name="level" required>
+                                <option value="">Votre niveau</option>
+                                <option value="debutant">Débutant</option>
+                                <option value="intermediaire">Intermédiaire</option>
+                                <option value="avance">Avancé</option>
+                                <option value="professionnel">Professionnel</option>
+                                <option value="enseignant">Enseignant</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Âge / Public concerné</label>
+                            <select class="form-select" name="age_group">
+                                <option value="">Sélectionnez</option>
+                                <option value="enfant">Enfant (8-12 ans)</option>
+                                <option value="adolescent">Adolescent (13-17 ans)</option>
+                                <option value="adulte">Adulte (18+ ans)</option>
+                                <option value="groupe">Groupe / Chœur</option>
+                                <option value="institution">Institution</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Votre nom</label>
+                            <input type="text" class="form-input" name="student_name" required placeholder="Prénom et nom">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-input" name="email" required placeholder="votre@email.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Téléphone</label>
+                            <input type="tel" class="form-input" name="phone" placeholder="+41 xx xxx xx xx">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Expérience musicale</label>
+                            <textarea class="form-textarea" name="experience" placeholder="Décrivez votre parcours musical, vos objectifs, le répertoire qui vous intéresse..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Demande spécifique</label>
+                            <textarea class="form-textarea" name="specific_request" required placeholder="Précisez vos attentes : fréquence des cours, objectifs particuliers, préparation d'examens..."></textarea>
+                        </div>
+
+                        <button type="submit" class="form-submit">
+                            Demander des informations
+                        </button>
+
+                        <div class="form-success">
+                            <i class="fas fa-check-circle"></i>
+                            Votre demande a été envoyée ! Je vous contacterai pour discuter de votre projet de formation.
+                        </div>
+                    </form>
+                </div>
+
+                <!-- General Contact Form -->
+                <div class="contact-form" id="general-form">
+                    <div class="form-header">
+                        <div class="form-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3 class="form-title">Contact général</h3>
+                        <p class="form-description">Questions, renseignements ou propositions diverses</p>
+                    </div>
+                    
+                    <form class="general-form" onsubmit="submitForm(event, 'general')">
+                        <div class="form-group">
+                            <label class="form-label">Sujet</label>
+                            <select class="form-select" name="subject" required>
+                                <option value="">Choisissez un sujet</option>
+                                <option value="information">Demande d'information</option>
+                                <option value="media">Demande média / presse</option>
+                                <option value="collaboration">Proposition de collaboration</option>
+                                <option value="repertoire">Question sur le répertoire</option>
+                                <option value="agenda">Information sur l'agenda</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Votre nom</label>
+                            <input type="text" class="form-input" name="contact_name" required placeholder="Prénom et nom">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-input" name="email" required placeholder="votre@email.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Organisation (optionnel)</label>
+                            <input type="text" class="form-input" name="organization" placeholder="Institution, média, etc.">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Message</label>
+                            <textarea class="form-textarea" name="message" required placeholder="Votre message..."></textarea>
+                        </div>
+
+                        <button type="submit" class="form-submit">
+                            Envoyer le message
+                        </button>
+
+                        <div class="form-success">
+                            <i class="fas fa-check-circle"></i>
+                            Votre message a été envoyé avec succès ! Je vous répondrai rapidement.
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="contact-info">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Informations pratiques</h2>
+                <p class="section-subtitle">Coordonnées et lieux d'activité</p>
+            </div>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-header">
+                        <div class="info-icon">
+                            <i class="fas fa-church"></i>
+                        </div>
+                        <h3 class="info-title">Cathédrale de Sion</h3>
+                    </div>
+                    <div class="info-content">
+                        <p><strong>Maître de chapelle</strong></p>
+                        <p>Cathédrale Notre-Dame-du-Glarier</p>
+                        <p>Rue de la Cathédrale</p>
+                        <p>1950 Sion, Valais</p>
+                        <p><a href="mailto:maitrise@cath-sion.ch">maitrise@cath-sion.ch</a></p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-header">
+                        <div class="info-icon">
+                            <i class="fas fa-school"></i>
+                        </div>
+                        <h3 class="info-title">Enseignement</h3>
+                    </div>
+                    <div class="info-content">
+                        <p><strong>Lycée-Collège des Creusets</strong></p>
+                        <p>Formation musicale</p>
+                        <p><strong>École maîtrisienne</strong></p>
+                        <p>30 jeunes musiciens</p>
+                        <p>Chant, orgue, direction chorale</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-header">
+                        <div class="info-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="info-title">Ensembles dirigés</h3>
+                    </div>
+                    <div class="info-content">
+                        <p><strong>Chœur Oracantat de Sion</strong></p>
+                        <p>Répertoire sacré et polyphonie</p>
+                        <p><strong>Maîtrise cathédrale</strong></p>
+                        <p>Différents ensembles</p>
+                        <p>Du grégorien au contemporain</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-header">
+                        <div class="info-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3 class="info-title">Disponibilités</h3>
+                    </div>
+                    <div class="info-content">
+                        <p><strong>Réponse sous 48h</strong></p>
+                        <p>Consultez l'agenda en ligne</p>
+                        <p><strong>Délai de réservation :</strong></p>
+                        <p>• Concerts : 3-6 mois</p>
+                        <p>• Masterclasses : 1-2 mois</p>
+                        <p>• Cours : selon disponibilités</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-card">
+                <div class="newsletter-content">
+                    <div class="newsletter-icon">
+                        <i class="fas fa-paper-plane"></i>
+                    </div>
+                    <h3 class="newsletter-title">Restez informé</h3>
+                    <p class="newsletter-description">
+                        Recevez les actualités, nouveaux concerts et créations musicales directement dans votre boîte mail.
+                    </p>
+                    <form class="newsletter-form" onsubmit="submitNewsletter(event)">
+                        <input type="email" class="newsletter-input" name="newsletter_email" placeholder="Votre adresse email" required>
+                        <button type="submit" class="newsletter-submit">S'abonner</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Enhanced form handling avec bug fixes
+        function scrollToForm(formType) {
+            const formsSection = document.getElementById('contact-forms');
+            const targetForm = document.getElementById(`${formType}-form`);
+            
+            if (!formsSection || !targetForm) {
+                console.error('Form elements not found');
+                return;
+            }
+            
+            // Prevent multiple rapid clicks
+            if (scrollToForm.isScrolling) return;
+            scrollToForm.isScrolling = true;
+            
+            // Smooth scroll optimisé
+            formsSection.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+            
+            // Animation de highlight améliorée avec cleanup
+            setTimeout(() => {
+                try {
+                    // Reset all forms safely
+                    document.querySelectorAll('.contact-form').forEach(form => {
+                        form.style.transform = 'translateY(0) translateZ(0)';
+                        form.style.border = '1px solid var(--border-subtle)';
+                        form.style.boxShadow = 'none';
+                        form.style.transition = 'var(--transition-smooth)';
+                    });
+                    
+                    // Highlight target form avec error handling
+                    if (targetForm) {
+                        targetForm.style.transition = 'all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                        targetForm.style.transform = 'translateY(-8px) scale(1.02) translateZ(0)';
+                        targetForm.style.border = '2px solid var(--accent-gold)';
+                        targetForm.style.boxShadow = '0 15px 40px rgba(201, 169, 110, 0.3)';
+                        
+                        // Pulse effect avec cleanup
+                        const pulseTimeout = setTimeout(() => {
+                            if (targetForm) {
+                                targetForm.style.transform = 'translateY(-5px) scale(1.01) translateZ(0)';
+                            }
+                        }, 300);
+                        
+                        // Reset avec cleanup automatique
+                        const resetTimeout = setTimeout(() => {
+                            if (targetForm) {
+                                targetForm.style.transition = 'var(--transition-smooth)';
+                                targetForm.style.transform = 'translateY(0) translateZ(0)';
+                                targetForm.style.border = '1px solid var(--border-subtle)';
+                                targetForm.style.boxShadow = 'var(--shadow-card)';
+                            }
+                            scrollToForm.isScrolling = false;
+                        }, 3000);
+                        
+                        // Store timeouts for cleanup
+                        targetForm._pulseTimeout = pulseTimeout;
+                        targetForm._resetTimeout = resetTimeout;
+                        
+                        // Focus avec error handling
+                        focusForm(`${formType}-form`);
+                    }
+                } catch (error) {
+                    console.error('Error in form highlighting:', error);
+                    scrollToForm.isScrolling = false;
+                }
+            }, 800);
+        }
+
+        function submitForm(event, formType) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const submitButton = form.querySelector('.form-submit');
+            const successMessage = form.querySelector('.form-success');
+            
+            // Prevent double submission
+            if (submitButton.classList.contains('loading')) {
+                return false;
+            }
+            
+            // Validate all fields before submission
+            let isValid = true;
+            const fields = form.querySelectorAll('.form-input[required], .form-select[required], .form-textarea[required]');
+            
+            fields.forEach(field => {
+                if (!validateField(field)) {
+                    isValid = false;
+                }
+            });
+            
+            if (!isValid) {
+                // Shake form for invalid submission
+                form.style.animation = 'errorShake 0.4s ease-in-out';
+                setTimeout(() => {
+                    form.style.animation = '';
+                }, 400);
+                return false;
+            }
+            
+            try {
+                // Enhanced loading state avec protection
+                submitButton.classList.add('loading');
+                submitButton.disabled = true;
+                submitButton.style.transform = 'scale(0.98) translateZ(0)';
+                submitButton.style.pointerEvents = 'none';
+                
+                // Form loading animation
+                form.classList.add('form-loading');
+                form.style.transform = 'scale(0.99) translateZ(0)';
+                
+                // Simulate form submission avec timeout protection
+                const submissionTimeout = setTimeout(() => {
+                    try {
+                        // Remove loading state avec animation
+                        submitButton.classList.remove('loading');
+                        submitButton.disabled = false;
+                        submitButton.style.transform = 'scale(1) translateZ(0)';
+                        submitButton.style.pointerEvents = 'auto';
+                        form.classList.remove('form-loading');
+                        form.style.transform = 'scale(1) translateZ(0)';
+                        
+                        // Success animation avec error handling
+                        if (successMessage) {
+                            successMessage.classList.add('show');
+                        }
+                        
+                        // Form success pulse
+                        form.style.animation = 'successPulse 0.6s ease-out';
+                        
+                        // Reset form avec animation progressive
+                        const resetForm = () => {
+                            const elements = Array.from(form.elements).filter(el => el.type !== 'submit');
+                            elements.forEach((element, index) => {
+                                setTimeout(() => {
+                                    if (element && element.value !== undefined) {
+                                        element.value = '';
+                                        element.style.animation = 'fadeOut 0.3s ease-out';
+                                        setTimeout(() => {
+                                            if (element) element.style.animation = '';
+                                        }, 300);
+                                    }
+                                }, index * 50);
+                            });
+                        };
+                        
+                        setTimeout(resetForm, 500);
+                        
+                        // Reset button text avec protection
+                        setTimeout(() => {
+                            if (submitButton) {
+                                const buttonTexts = {
+                                    'engagement': 'Envoyer la demande',
+                                    'education': 'Demander des informations',
+                                    'general': 'Envoyer le message'
+                                };
+                                submitButton.textContent = buttonTexts[formType] || 'Envoyer';
+                                form.style.animation = '';
+                            }
+                        }, 1000);
+                        
+                        // Hide success message avec fade out
+                        if (successMessage) {
+                            const hideTimeout = setTimeout(() => {
+                                successMessage.style.animation = 'fadeOut 0.5s ease-out';
+                                setTimeout(() => {
+                                    successMessage.classList.remove('show');
+                                    successMessage.style.animation = '';
+                                }, 500);
+                            }, 4000);
+                            
+                            // Store timeout for cleanup
+                            successMessage._hideTimeout = hideTimeout;
+                        }
+                        
+                    } catch (error) {
+                        console.error('Error in form submission completion:', error);
+                        // Fallback reset
+                        submitButton.classList.remove('loading');
+                        submitButton.disabled = false;
+                        form.classList.remove('form-loading');
+                    }
+                }, 2500);
+                
+                // Store timeout for cleanup
+                form._submissionTimeout = submissionTimeout;
+                
+            } catch (error) {
+                console.error('Error in form submission:', error);
+                // Emergency reset
+                submitButton.classList.remove('loading');
+                submitButton.disabled = false;
+                form.classList.remove('form-loading');
+            }
+            
+            return false;
+        }
+
+        function submitNewsletter(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const submitButton = form.querySelector('.newsletter-submit');
+            const input = form.querySelector('.newsletter-input');
+            
+            // Prevent double submission
+            if (submitButton.disabled) return false;
+            
+            // Validate email
+            const email = input.value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (!email || !emailRegex.test(email)) {
+                input.style.animation = 'errorShake 0.4s ease-in-out';
+                input.focus();
+                setTimeout(() => {
+                    input.style.animation = '';
+                }, 400);
+                return false;
+            }
+            
+            try {
+                // Enhanced loading animation avec protection
+                submitButton.disabled = true;
+                submitButton.style.transform = 'scale(0.95) translateZ(0)';
+                submitButton.textContent = 'Inscription...';
+                submitButton.style.opacity = '0.8';
+                
+                // Input animation
+                input.style.transform = 'scale(0.98) translateZ(0)';
+                input.style.opacity = '0.7';
+                input.disabled = true;
+                
+                // Simulate newsletter subscription avec timeout
+                const subscriptionTimeout = setTimeout(() => {
+                    try {
+                        // Success state avec animation
+                        submitButton.textContent = 'Inscrit !';
+                        submitButton.style.background = '#28a745';
+                        submitButton.style.transform = 'scale(1.05) translateZ(0)';
+                        
+                        // Input success animation
+                        input.style.animation = 'successGlow 0.6s ease-out';
+                        input.value = '';
+                        
+                        // Reset input state
+                        setTimeout(() => {
+                            if (input) {
+                                input.style.transform = 'scale(1) translateZ(0)';
+                                input.style.opacity = '1';
+                                input.style.animation = '';
+                                input.disabled = false;
+                            }
+                        }, 600);
+                        
+                        // Reset button
+                        setTimeout(() => {
+                            if (submitButton) {
+                                submitButton.textContent = 'S\'abonner';
+                                submitButton.style.background = 'var(--accent-gold)';
+                                submitButton.style.opacity = '1';
+                                submitButton.style.transform = 'scale(1) translateZ(0)';
+                                submitButton.disabled = false;
+                            }
+                        }, 2500);
+                        
+                    } catch (error) {
+                        console.error('Error in newsletter completion:', error);
+                        // Fallback reset
+                        submitButton.disabled = false;
+                        input.disabled = false;
+                    }
+                }, 1200);
+                
+                // Store timeout for cleanup
+                form._subscriptionTimeout = subscriptionTimeout;
+                
+            } catch (error) {
+                console.error('Error in newsletter submission:', error);
+                // Emergency reset
+                submitButton.disabled = false;
+                input.disabled = false;
+            }
+            
+            return false;
+        }
+
+        // Enhanced validation avec debouncing
+        function validateField(field) {
+            if (!field) return false;
+            
+            // Clear previous validation timeout
+            if (field._validationTimeout) {
+                clearTimeout(field._validationTimeout);
+            }
+            
+            // Debounce validation
+            field._validationTimeout = setTimeout(() => {
+                try {
+                    const value = field.value.trim();
+                    const isRequired = field.hasAttribute('required');
+                    const isEmail = field.type === 'email';
+                    const isPhone = field.type === 'tel';
+                    
+                    // Remove previous states
+                    field.classList.remove('error');
+                    field.style.animation = '';
+                    
+                    let isValid = true;
+                    
+                    // Validation logic
+                    if (isRequired && !value) {
+                        isValid = false;
+                    } else if (isEmail && value) {
+                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        if (!emailRegex.test(value)) isValid = false;
+                    } else if (isPhone && value) {
+                        const phoneRegex = /^[\+]?[0-9\s\-\(\)]{10,}$/;
+                        if (!phoneRegex.test(value)) isValid = false;
+                    }
+                    
+                    if (!isValid && value) { // Only show error if user tried to input something
+                        field.classList.add('error');
+                        setTimeout(() => {
+                            if (field) field.style.animation = 'errorShake 0.4s ease-in-out';
+                        }, 50);
+                    } else if (value && isValid) {
+                        // Success animation only for filled valid fields
+                        field.style.animation = 'successGlow 0.4s ease-out';
+                        setTimeout(() => {
+                            if (field) field.style.animation = '';
+                        }, 400);
+                    }
+                    
+                    return isValid;
+                } catch (error) {
+                    console.error('Error in field validation:', error);
+                    return false;
+                }
+            }, 300);
+            
+            return true;
+        }
+
+        // Enhanced ripple effect avec cleanup
+        function createRippleEffect(element, event) {
+            try {
+                // Clean existing ripples
+                const existingRipples = element.querySelectorAll('.ripple-effect');
+                existingRipples.forEach(ripple => ripple.remove());
+                
+                const ripple = document.createElement('div');
+                const rect = element.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = event.clientX - rect.left - size / 2;
+                const y = event.clientY - rect.top - size / 2;
+                
+                ripple.className = 'ripple-effect';
+                ripple.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    background: rgba(201, 169, 110, 0.3);
+                    border-radius: 50%;
+                    transform: scale(0);
+                    animation: ripple 0.6s ease-out;
+                    pointer-events: none;
+                    z-index: 1;
+                `;
+                
+                element.appendChild(ripple);
+                
+                // Auto cleanup
+                setTimeout(() => {
+                    if (ripple && ripple.parentNode) {
+                        ripple.remove();
+                    }
+                }, 600);
+                
+            } catch (error) {
+                console.error('Error creating ripple effect:', error);
+            }
+        }
+
+        // Scroll-triggered animations
+        function initScrollAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        
+                        // Staggered animation for children
+                        const children = entry.target.querySelectorAll('.method-card, .contact-form, .info-card');
+                        children.forEach((child, index) => {
+                            setTimeout(() => {
+                                child.style.animation = `slideInUp 0.6s ease-out forwards`;
+                                child.style.animationDelay = `${index * 0.1}s`;
+                            }, 100);
+                        });
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            // Observe sections
+            document.querySelectorAll('.contact-methods, .contact-forms, .contact-info, .newsletter').forEach(section => {
+                section.classList.add('scroll-animate');
+                observer.observe(section);
+            });
+        }
+
+        // Enhanced form interactions
+        function initFormInteractions() {
+            // Method cards enhanced hover
+            document.querySelectorAll('.method-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-12px) translateZ(0)';
+                    this.style.transition = 'var(--transition-elastic)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) translateZ(0)';
+                    this.style.transition = 'var(--transition-smooth)';
+                });
+                
+                // Click ripple effect
+                card.addEventListener('click', function(e) {
+                    const ripple = document.createElement('div');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.cssText = `
+                        position: absolute;
+                        width: ${size}px;
+                        height: ${size}px;
+                        left: ${x}px;
+                        top: ${y}px;
+                        background: rgba(201, 169, 110, 0.3);
+                        border-radius: 50%;
+                        transform: scale(0);
+                        animation: ripple 0.6s ease-out;
+                        pointer-events: none;
+                        z-index: 1;
+                    `;
+                    
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+
+            // Form field animations
+            document.querySelectorAll('.form-input, .form-select, .form-textarea').forEach(field => {
+                field.addEventListener('focus', function() {
+                    this.parentElement.style.transform = 'scale(1.01) translateZ(0)';
+                    this.parentElement.style.transition = 'var(--transition-smooth)';
+                });
+                
+                field.addEventListener('blur', function() {
+                    this.parentElement.style.transform = 'scale(1) translateZ(0)';
+                    validateField(this);
+                });
+                
+                field.addEventListener('input', function() {
+                    if (this.classList.contains('error')) {
+                        validateField(this);
+                    }
+                });
+            });
+        }
+
+        // Auto-focus with animation
+        function focusForm(formId) {
+            const form = document.getElementById(formId);
+            const firstInput = form.querySelector('.form-input, .form-select');
+            if (firstInput) {
+                setTimeout(() => {
+                    firstInput.focus();
+                    firstInput.style.animation = 'focusPulse 0.5s ease-out';
+                    setTimeout(() => {
+                        firstInput.style.animation = '';
+                    }, 500);
+                }, 1000);
+            }
+        }
+
+        // Performance optimization
+        function optimizeAnimations() {
+            // Enable GPU acceleration for all animated elements
+            const animatedElements = document.querySelectorAll(`
+                .method-card, .contact-form, .info-card, .newsletter-card,
+                .form-submit, .method-action, .newsletter-submit
+            `);
+            
+            animatedElements.forEach(element => {
+                element.style.willChange = 'transform, opacity';
+                element.style.transform = 'translateZ(0)';
+            });
+        }
+
+        // Nouvelles animations CSS
+        const additionalCSS = `
+            @keyframes successPulse {
+                0%, 100% { transform: scale(1) translateZ(0); }
+                50% { transform: scale(1.02) translateZ(0); }
+            }
+            
+            @keyframes successGlow {
+                0% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.4); }
+                50% { box-shadow: 0 0 20px 5px rgba(40, 167, 69, 0.2); }
+                100% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0); }
+            }
+            
+            @keyframes fadeOut {
+                from { opacity: 1; transform: translateY(0) scale(1); }
+                to { opacity: 0; transform: translateY(-10px) scale(0.95); }
+            }
+            
+            @keyframes ripple {
+                from { transform: scale(0); opacity: 1; }
+                to { transform: scale(1); opacity: 0; }
+            }
+        `;
+        
+        // Add CSS animations
+        const styleSheet = document.createElement('style');
+        styleSheet.textContent = additionalCSS;
+        document.head.appendChild(styleSheet);
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', function() {
+            optimizeAnimations();
+            initScrollAnimations();
+            initFormInteractions();
+            console.log('🎯 Contact page with optimized animations loaded successfully');
+            
+            // Performance monitoring
+            console.log('⚡ Animation performance optimized with GPU acceleration');
+        });
+    </script>
+</body>
+</html>>
+                    <h3 class="method-title">Engagements musicaux</h3>
+                    <p class="method-description">
+                        Concerts, récitals, direction chorale, événements liturgiques et collaborations artistiques.
+                    </p>
+                    <div class="method-action">Demander un devis</div>
+                </div>
+
+                <div class="method-card" onclick="scrollToForm('education')">
+                    <div class="method-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="method-title">Formation & Enseignement</h3>
+                    <p class="method-description">
+                        Masterclasses, cours particuliers, direction chorale et formation en musique ancienne.
+                    </p>
+                    <div class="method-action">Demander des infos</div>
+                </div>
+
+                <div class="method-card" onclick="scrollToForm('general')">
+                    <div class="method-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 class="method-title">Contact général</h3>
+                    <p class="method-description">
+                        Questions générales, demandes de renseignements ou propositions de collaboration.
+                    </p>
+                    <div class="method-action">Envoyer un message</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Forms -->
+    <section class="contact-forms" id="contact-forms">
+        <div class="container">
+            <div class="forms-container">
+                <!-- Concert/Engagement Form -->
+                <div class="contact-form" id="concert-form">
+                    <div class="form-header">
+                        <div class="form-icon">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <h3 class="form-title">Engagement musical</h3>
+                        <p class="form-description">Demande de concert, récital ou collaboration artistique</p>
+                    </div>
+                    
+                    <form class="engagement-form" onsubmit="submitForm(event, 'engagement')">
+                        <div class="form-group">
+                            <label class="form-label">Type d'événement</label>
+                            <select class="form-select" name="event_type" required>
+                                <option value="">Sélectionnez le type</option>
+                                <option value="concert">Concert</option>
+                                <option value="recital">Récital d'orgue</option>
+                                <option value="direction">Direction chorale</option>
+                                <option value="liturgie">Événement liturgique</option>
+                                <option value="collaboration">Collaboration artistique</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Organisation / Institution</label>
+                            <input type="text" class="form-input" name="organization" required placeholder="Nom de votre organisation">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Date souhaitée</label>
+                            <input type="date" class="form-input" name="event_date" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Lieu</label>
+                            <input type="text" class="form-input" name="venue" required placeholder="Église, salle de concert, etc.">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Budget approximatif</label>
+                            <select class="form-select" name="budget">
+                                <option value="">Budget indicatif</option>
+                                <option value="1000-2000">1'000 - 2'000 CHF</option>
+                                <option value="2000-5000">2'000 - 5'000 CHF</option>
+                                <option value="5000-10000">5'000 - 10'000 CHF</option>
+                                <option value="10000+">Plus de 10'000 CHF</option>
+                                <option value="negociable">À négocier</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Votre nom</label>
+                            <input type="text" class="form-input" name="contact_name" required placeholder="Prénom et nom">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-input" name="email" required placeholder="votre@email.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Téléphone</label>
+                            <input type="tel" class="form-input" name="phone" placeholder="+41 xx xxx xx xx">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Détails du projet</label>
+                            <textarea class="form-textarea" name="project_details" required placeholder="Décrivez votre projet : programme souhaité, contexte, public attendu, contraintes particulières..."></textarea>
+                        </div>
+
+                        <button type="submit" class="form-submit">
+                            Envoyer la demande
+                        </button>
+
+                        <div class="form-success">
+                            <i class="fas fa-check-circle"></i>
+                            Votre demande a été envoyée avec succès ! Je vous répondrai dans les plus brefs délais.
+                        </div>
+                    </form>
+                </div

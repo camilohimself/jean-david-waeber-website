@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Répertoire - Jean-David Waeber</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-dark: #000000;
+            --primary-light: #1a1a1a;
+            --secondary-light: #2a2a2a;
+            --accent-primary: #333333;
+            --accent-subtle: #4a4a4a;
+            --accent-gold: #c9a96e;
+            --accent-gold-light: #d4b676;
+            --text-primary: #ffffff;
+            --text-secondary: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --text-subtle: #808080;
+            --bg-section: #0a0a0a;
+            --bg-card: #151515;
+            --border-subtle: #2a2a2a;
+            --border-light: #3a3a3a;
+            --success-green: #4ade80;
+            --info-blue: #60a5fa;
+            
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Source Sans Pro', sans-serif;
+            
+            --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.6);
+            --shadow-intense: 0 16px 64px rgba(0, 0, 0, 0.8);
+            --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.5);
+            --shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.3);
+            
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--bg-section) 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: var(--shadow-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition-smooth);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-menu a.active,
+        .nav-menu a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Header Section */
+        .header {
+            padding: 8rem 0 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, var(--text-primary) 0%, transparent 70%);
+            opacity: 0.03;
+            z-index: 1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .header-title {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(21, 21, 21, 0.8);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-subtle);
+            transition: var(--transition-smooth);
+        }
+
+        .stat-item:hover {
+            border-color: var(--border-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .stat-number {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Filters Section */
+        .filters-section {
+            padding: 3rem 0;
+            background: var(--bg-section);
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .filters-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .filter-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .filter-select,
+        .search-input {
+            padding: 0.8rem 1.2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 25px;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            transition: var(--transition-smooth);
+            min-width: 150px;
+        }
+
+        .filter-select:focus,
+        .search-input:focus {
+            outline: none;
+            border-color: var(--border-light);
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+            background: var(--secondary-light);
+        }
+
+        .search-group {
+            position: relative;
+        }
+
+        .search-input {
+            padding-left: 3rem;
+            min-width: 300px;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+
+        .clear-filters {
+            padding: 0.8rem 1.5rem;
+            background: transparent;
+            border: 1px solid var(--border-light);
+            border-radius: 25px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            font-size: 0.9rem;
+        }
+
+        .clear-filters:hover {
+            background: var(--text-primary);
+            color: var(--primary-dark);
+            border-color: var(--text-primary);
+        }
+
+        /* Category Pills */
+        .category-pills {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        .category-pill {
+            padding: 0.7rem 1.5rem;
+            background: transparent;
+            border: 2px solid var(--border-subtle);
+            border-radius: 25px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .category-pill.active,
+        .category-pill:hover {
+            border-color: var(--text-primary);
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 4rem 0;
+        }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .results-count {
+            color: var(--text-secondary);
+        }
+
+        .view-toggle {
+            display: flex;
+            gap: 0.5rem;
+            background: var(--bg-card);
+            border-radius: 25px;
+            padding: 0.3rem;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .view-btn {
+            padding: 0.5rem 1rem;
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            border-radius: 20px;
+            transition: var(--transition-smooth);
+        }
+
+        .view-btn.active {
+            background: var(--text-primary);
+            color: var(--primary-dark);
+        }
+
+        /* Repertoire Grid */
+        .repertoire-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .repertoire-card {
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--secondary-light) 100%);
+            border-radius: 25px;
+            padding: 2.5rem;
+            border: 1px solid var(--border-subtle);
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            min-height: 420px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .repertoire-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, var(--text-primary), var(--text-secondary));
+            border-radius: 25px;
+            opacity: 0;
+            transition: var(--transition-smooth);
+            z-index: -1;
+        }
+
+        .repertoire-card:hover::before {
+            opacity: 0.5;
+        }
+
+        .repertoire-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-intense);
+            border-color: var(--border-light);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .composer-info {
+            flex: 1;
+        }
+
+        .composer-name {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+            margin-bottom: 0.3rem;
+        }
+
+        .composer-period {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .category-badge {
+            padding: 0.4rem 0.8rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid var(--border-light);
+        }
+
+        .work-title {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .work-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .detail-icon {
+            color: var(--text-secondary);
+            width: 16px;
+        }
+
+        .work-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex: 1;
+        }
+
+        .difficulty-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .difficulty-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .difficulty-stars {
+            display: flex;
+            gap: 2px;
+        }
+
+        .difficulty-star {
+            width: 12px;
+            height: 12px;
+            background: var(--border-subtle);
+            border-radius: 50%;
+            transition: var(--transition-smooth);
+        }
+
+        .difficulty-star.filled {
+            background: var(--accent-gold);
+            box-shadow: 0 0 8px rgba(201, 169, 110, 0.4);
+        }
+
+        .repertoire-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .repertoire-tag {
+            padding: 0.3rem 0.8rem;
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-secondary);
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .performance-count {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        .performance-count .count-number {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        /* Smart Recommendations */
+        .recommendations-section {
+            background: var(--bg-section);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            border: 1px solid var(--border-subtle);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .recommendations-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, var(--text-primary) 0%, transparent 50%);
+            opacity: 0.03;
+            z-index: 1;
+        }
+
+        .recommendations-grid {
+            position: relative;
+            z-index: 2;
+        }
+
+        .recommendation-card {
+            background: rgba(21, 21, 21, 0.8);
+            border-radius: 15px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--text-primary);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .rec-header {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .rec-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 1.1rem;
+        }
+
+        .rec-content {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .rec-highlight {
+            color: var(--accent-gold);
+            font-weight: 500;
+        }: 500;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .action-btn {
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--text-primary);
+            color: var(--primary-dark);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-light);
+        }
+
+        .btn-primary:hover {
+            background: var(--text-secondary);
+            transform: scale(1.05);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--text-primary);
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .media-placeholder {
+            background: var(--bg-section);
+            border: 2px dashed var(--border-subtle);
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        /* List View */
+        .repertoire-list {
+            display: none;
+        }
+
+        .repertoire-list.active {
+            display: block;
+        }
+
+        .list-item {
+            display: flex;
+            align-items: center;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border-radius: 15px;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-subtle);
+            transition: var(--transition-smooth);
+        }
+
+        .list-item:hover {
+            border-color: var(--border-light);
+            transform: translateX(10px);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .list-content {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr auto;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .list-title {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .list-subtitle {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* No Results */
+        .no-results {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-muted);
+        }
+
+        .no-results-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: var(--border-subtle);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-title {
+                font-size: 2.5rem;
+            }
+
+            .filters-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-input {
+                min-width: 100%;
+            }
+
+            .category-pills {
+                overflow-x: auto;
+                justify-content: flex-start;
+                padding-bottom: 1rem;
+            }
+
+            .repertoire-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .results-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .list-content {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+        }
+
+        /* Loading States */
+        .loading-skeleton {
+            background: linear-gradient(90deg, var(--border-subtle) 25%, rgba(255,255,255,0.1) 50%, var(--border-subtle) 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Jean-David Waeber</a>
+            <ul class="nav-menu">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#biographie">Biographie</a></li>
+                <li><a href="#repertoire" class="active">Répertoire</a></li>
+                <li><a href="#agenda">Agenda</a></li>
+                <li><a href="#galerie">Galerie</a></li>
+                <li><a href="#media">Média</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="header">
+        <div class="header-content">
+            <h1 class="header-title">Mon Répertoire</h1>
+            <p class="header-subtitle">Du chant grégorien aux créations contemporaines, découvrez l'univers musical que je cultive et transmets</p>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">150+</span>
+                    <span class="stat-label">Œuvres maîtrisées</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">25</span>
+                    <span class="stat-label">Compositeurs</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">8</span>
+                    <span class="stat-label">Siècles de musique</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">12</span>
+                    <span class="stat-label">Compositions originales</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="filters-section">
+        <div class="container">
+            <div class="filters-container">
+                <div class="filter-group">
+                    <label class="filter-label">Période</label>
+                    <select class="filter-select" id="periodFilter">
+                        <option value="">Toutes les périodes</option>
+                        <option value="medieval">Médiéval (XIe-XIVe)</option>
+                        <option value="renaissance">Renaissance (XVe-XVIe)</option>
+                        <option value="baroque">Baroque (XVIIe-XVIIIe)</option>
+                        <option value="classique">Classique (XVIIIe-XIXe)</option>
+                        <option value="romantique">Romantique (XIXe)</option>
+                        <option value="moderne">Moderne (XXe)</option>
+                        <option value="contemporain">Contemporain (XXIe)</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label class="filter-label">Formation</label>
+                    <select class="filter-select" id="formationFilter">
+                        <option value="">Toutes formations</option>
+                        <option value="orgue">Orgue solo</option>
+                        <option value="clavecin">Clavecin</option>
+                        <option value="choeur">Chœur</option>
+                        <option value="soliste-choeur">Soliste & Chœur</option>
+                        <option value="orchestre">Orchestre</option>
+                        <option value="chambre">Musique de chambre</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label class="filter-label">Genre</label>
+                    <select class="filter-select" id="genreFilter">
+                        <option value="">Tous genres</option>
+                        <option value="gregorien">Chant grégorien</option>
+                        <option value="polyphonie">Polyphonie</option>
+                        <option value="cantate">Cantate</option>
+                        <option value="motet">Motet</option>
+                        <option value="messe">Messe</option>
+                        <option value="toccata">Toccata</option>
+                        <option value="fugue">Fugue</option>
+                        <option value="prelude">Prélude</option>
+                        <option value="composition">Composition originale</option>
+                    </select>
+                </div>
+
+                <div class="search-group">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-input" id="searchInput" placeholder="Rechercher une œuvre, compositeur...">
+                </div>
+
+                <button class="clear-filters" id="clearFilters">
+                    <i class="fas fa-times"></i> Effacer
+                </button>
+            </div>
+
+            <div class="category-pills">
+                <a href="#" class="category-pill active" data-category="all">Tout le répertoire</a>
+                <a href="#" class="category-pill" data-category="sacred">Musique sacrée</a>
+                <a href="#" class="category-pill" data-category="compositions">Mes compositions</a>
+                <a href="#" class="category-pill" data-category="interpretation">Interprétation</a>
+                <a href="#" class="category-pill" data-category="direction">Direction</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="container">
+            <!-- Smart Recommendations -->
+            <div class="recommendations-section" id="recommendationsSection" style="display: none;">
+                <div class="section-header">
+                    <h3 style="color: var(--accent-gold); font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 1rem;">
+                        <i class="fas fa-lightbulb"></i> Recommandations pour vous
+                    </h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+                        Basé sur votre recherche, voici des œuvres qui pourraient vous intéresser
+                    </p>
+                </div>
+                <div class="recommendations-grid">
+                    <div class="recommendation-card">
+                        <div class="rec-header">
+                            <i class="fas fa-star" style="color: var(--accent-gold);"></i>
+                            <span class="rec-title">Suggestion intelligente</span>
+                        </div>
+                        <div class="rec-content" id="smartRecommendation">
+                            <!-- Dynamic content -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results-header">
+                <div class="results-count" id="resultsCount">
+                    42 œuvres trouvées
+                </div>
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="grid">
+                        <i class="fas fa-th"></i>
+                    </button>
+                    <button class="view-btn" data-view="list">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Grid View -->
+            <div class="repertoire-grid" id="gridView">
+                <!-- Bach Cantates -->
+                <div class="repertoire-card fade-in" data-category="sacred direction" data-period="baroque" data-formation="soliste-choeur" data-genre="cantate">
+                    <div class="card-header">
+                        <div class="composer-info">
+                            <div class="composer-name">Johann Sebastian Bach</div>
+                            <div class="composer-period">1685-1750</div>
+                        </div>
+                        <div class="category-badge">Direction</div>
+                    </div>
+                    <h3 class="work-title">Cycle complet des Cantates</h3>
+                    <div class="work-details">
+                        <div class="detail-item">
+                            <i class="fas fa-users detail-icon"></i>
+                            <span>Solistes, Chœur & Orchestre</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock detail-icon"></i>
+                            <span>Présentation mensuelle</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt detail-icon"></i>
+                            <span>Cathédrale de Sion</span>
+                        </div>
+                    </div>
+                    <div class="repertoire-tags">
+                        <span class="repertoire-tag">Cycle intégral</span>
+                        <span class="repertoire-tag">Liturgique</span>
+                        <span class="repertoire-tag">Allemand</span>
+                    </div>
+                    <div class="difficulty-indicator">
+                        <span class="difficulty-label">Niveau :</span>
+                        <div class="difficulty-stars">
+                            <div class="difficulty-star filled"></div>
+                            <div class="difficulty-star filled"></div>
+                            <div class="difficulty-star filled"></div>
+                            <div class="difficulty-star filled"></div>
+                            <div class="difficulty-star filled"></div>
+                        </div>
+                    </div>
+                    <p class="work-description">
+                        Un voyage spirituel à travers l'œuvre intégrale du Cantor de Leipzig. Chaque mois, présentation d'une cantate dans son contexte liturgique avec la Maîtrise cathédrale.
+                    </p>
+                    <div class="performance-count">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Dirigé <span class="count-number">24</span> cantates différentes</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="#" class="action-btn btn-primary">
+                            <i class="fas fa-calendar"></i>
+                            Prochaines dates
+                        </a>
+                        <a href="#" class="action-btn btn-secondary">
+                            <i class="fas fa-eye"></i>
+                            Analyse
+                        </a>
+                    </div>
+                    <div class="media-placeholder">
+                        <i class="fas fa-waveform-lines"></i> Premiers enregistrements prévus 2024
+                    </div>
+                </div>
+
+                <!-- Chant Grégorien -->
+                <div class="repertoire-card fade-in" data-category="sacred direction" data-period="medieval" data-formation="choeur" data-genre="gregorien">
+                    <div class="card-header">
+                        <div class="composer-info">
+                            <div class="composer-name">Tradition Grégorienne</div>
+                            <div class="composer-period">VIe-XIe siècles</div>
+                        </div>
+                        <div class="category-badge">Tradition</div>
+                    </div>
+                    <h3 class="work-title">Chant grégorien - Tradition millénaire</h3>
+                    <div class="work-details">
+                        <div class="detail-item">
+                            <i class="fas fa-cross detail-icon"></i>
+                            <span>Liturgie traditionnelle</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-book detail-icon"></i>
+                            <span>Manuscrits anciens</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-users detail-icon"></i>
+                            <span>École maîtrisienne</span>
+                        </div>
+                    </div>
+                    <div class="repertoire-tags">
+                        <span class="repertoire-tag">Transmission</span>
+                        <span class="repertoire-tag">Manuscrits</span>
+                        <span class="repertoire-tag">Authentique</span>
+                    </div>
+                    <div class="difficulty-indicator">
+                        <span class="difficulty-label">Niveau :</span>
+                        <div class="difficulty-stars">
+                            <div class="difficulty-star filled"></div>
+                            <div class="difficulty-star filled"></div>
+                            <div class="difficulty-star"></div>
+                            <div class="difficulty-star"></div>
+                            <div class="difficulty-star"></div>
+                        </div>
+                    </div>
+                    <p class="work-description">
+                        Transmission vivante du patrimoine grégorien à travers l'enseignement et la pratique liturgique. Étude des neumes et restitution des mélodies authentiques.
+                    </p>
+                    <div class="performance-count">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Enseigné à <span class="count-number">30+</span> élèves</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="#" class="action-btn btn-primary">
+                            <i class="fas fa-graduation-cap"></i>
+                            Formation
+                        </a>
+                        <a href="#" class="action-btn btn-secondary">
+                            <i class="fas fa-book-open"></i>
+                            Ressources
+                        </a>
+                    </div>
+                    <div class="media-placeholder">
+                        <i class="fas fa-microphone"></i> Enregistrements pédagogiques disponibles
+                    </div>
+                </div>
+
+                <!-- Palestrina -->
+                <div class="repertoire-card fade-in" data-category="sacred direction" data-period="renaissance" data-formation="choeur" data-genre="polyphonie">
+                    <div class="card-header">
+                        <div class="composer-info">
+                            <div class="composer-name">Giovanni Pierluigi da Palestrina</div>
+                            <div class="composer-period">1525-1594</div>
+                        </div>
+                        <div class="category-badge">Direction</div>
+                    </div>
+                    <h3 class="work-title">Polyphonie Renaissance</h3>
+                    <div class="work-details">
+                        <div class="detail-item">
+                            <i class="fas fa-layer-group detail-icon"></i>
+                            <span>Polyphonie vocale</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-crown detail-icon"></i>
+                            <span>Maître de la Renaissance</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-church detail-icon"></i>
+                            <span>Messes & Motets</span>
+                        </div>
+                    </div>
+                    <div class="repertoire-tags">
+                        <span class="repertoire-tag">Maître Renaissance</span>
+                        <span class="repertoire-tag">Contrepoint</span>
+                        <span class="repertoire-tag">A cappella</span>
+                    </div>
+                    <div class="difficulty-indicator">
+                        <span class="difficulty-label">Niveau :</span>
+                        <div class="difficulty-stars">
+                            <div class="difficulty-star filled"></div>
+                            <div class="difficulty-star filled"></div>
+                            <div class="difficulty-star filled"></div>
+                            <div class="difficulty-star filled"></div>
+                            <div class="difficulty-star"></div>
+                        </div>
+                    </div>
+                    <p class="work-description">
+                        Interprétation de la polyphonie palestrinienne avec le chœur Oracantat. Recherche de la pureté stylistique et de l'équilibre des voix dans la tradition vocale.
+                    </p>
+                    <div class="performance-count">
+                        <i class="fas fa-users"></i>
+                        <span><span class="count-number">15</span> messes dirigées</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="#" class="action-btn btn-primary">
+                            <i class="fas fa-users"></i>
+                            Oracantat
+                        </a>
+                        <a href="#" class="action-btn btn-secondary">
+                            <i class="fas fa-history"></i>
+                            Contexte
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Couperin Clavecin -->
+                <div class="repertoire-card fade-in" data-category="interpretation" data-period="baroque" data-formation="clavecin" data-genre="prelude">
+                    <div class="card-header">
+                        <div class="composer-info">
+                            <div class="composer-name">François Couperin</div>
+                            <div class="composer-period">1668-1733</div>
+                        </div>
+                        <div class="category-badge">Interprétation</div>
+                    </div>
+                    <h3 class="work-title">Pièces de clavecin</h3>
+                    <div class="work-details">
+                        <div class="detail-item">
+                            <i class="fas fa-piano detail-icon"></i>
+                            <span>Clavecin historique</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-gem detail-icon"></i>
+                            <span>École française</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-music detail-icon"></i>
+                            <span>4 livres</span>
+                        </div>
+                    </div>
+                    <div class="repertoire-tags">
+                        <span class="repertoire-tag">École française</span>
+                        <span class="repertoire-tag">Ornementation</span>
+                        <span class="repertoire-tag">Chambre</span>
+                    </div>
+                    <div class="difficulty-indicator">
+                        <span class="difficulty-label">Niveau :</span>
+                        <div class="difficulty-stars">
+                            <div class="difficulty-star filled"></div>
+                            <div class="difficulty-star filled"></div>
+                            <div class="difficulty-star filled"></div>
+                            <div class="difficulty-star"></div>
+                            <div class="difficulty-star"></div>
+                        </div>
+                    </div>
+                    <p class="work-description">
+                        Exploration de l'art français du clavecin à travers les ordres de Couperin le Grand. Finesse de l'ornementation et subtilité du toucher historique.
+                    </p>
+                    <div class="performance-count">
+                        <i class="fas fa-piano"></i>
+                        <span><span class="count-number">4</span> livres complets maîtrisés</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="#" class="action-btn btn-primary">
+                            <i class="fas fa-play"></i>
+                            Extraits
+                        </a>
+                        <a href="#" class="action-btn btn-secondary">
+                            <i class="fas fa-info"></i>
+                            Instruments
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- List View -->
+            <div class="repertoire-list" id="listView">
+                <div class="list-item">
+                    <div class="list-content">
+                        <div>
+                            <div class="list-title">Cantates de Bach - Cycle intégral</div>
+                            <div class="list-subtitle">Johann Sebastian Bach (1685-1750)</div>
+                        </div>
+                        <div class="list-subtitle">Direction</div>
+                        <div class="list-subtitle">Baroque</div>
+                        <div class="list-subtitle">Solistes & Chœur</div>
+                        <div class="card-actions">
+                            <a href="#" class="action-btn btn-primary">Détails</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="list-item">
+                    <div class="list-content">
+                        <div>
+                            <div class="list-title">Œuvres pour orgue de Buxtehude</div>
+                            <div class="list-subtitle">Dietrich Buxtehude (1637-1707)</div>
+                        </div>
+                        <div class="list-subtitle">Interprétation</div>
+                        <div class="list-subtitle">Baroque</div>
+                        <div class="list-subtitle">Orgue solo</div>
+                        <div class="card-actions">
+                            <a href="#" class="action-btn btn-primary">Détails</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- No Results -->
+            <div class="no-results" id="noResults" style="display: none;">
+                <div class="no-results-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3>Aucun résultat trouvé</h3>
+                <p>Essayez de modifier vos critères de recherche ou explorez d'autres catégories.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Repertoire data structure
+        const repertoireData = [
+            {
+                id: 1,
+                composer: "Johann Sebastian Bach",
+                period: "1685-1750",
+                title: "Cycle complet des Cantates",
+                category: ["sacred", "direction"],
+                periodTag: "baroque",
+                formation: "soliste-choeur",
+                genre: "cantate",
+                description: "Un voyage spirituel à travers l'œuvre intégrale du Cantor de Leipzig.",
+                keywords: ["bach", "cantate", "leipzig", "spiritual", "maîtrise"]
+            },
+            {
+                id: 2,
+                composer: "Dietrich Buxtehude",
+                period: "1637-1707",
+                title: "Œuvres complètes pour orgue",
+                category: ["interpretation"],
+                periodTag: "baroque",
+                formation: "orgue",
+                genre: "prelude",
+                description: "Exploration du maître de Lübeck dans la tradition historique.",
+                keywords: ["buxtehude", "orgue", "lübeck", "toccata", "prelude"]
+            },
+            {
+                id: 3,
+                composer: "Jean-David Waeber",
+                period: "Compositions",
+                title: "Pièces pour orgue - Style néo-baroque",
+                category: ["compositions"],
+                periodTag: "contemporain",
+                formation: "orgue",
+                genre: "composition",
+                description: "Créations personnelles alliant tradition et modernité.",
+                keywords: ["waeber", "composition", "néo-baroque", "création", "moderne"]
+            },
+            {
+                id: 4,
+                composer: "Tradition Grégorienne",
+                period: "VIe-XIe siècles",
+                title: "Chant grégorien - Tradition millénaire",
+                category: ["sacred", "direction"],
+                periodTag: "medieval",
+                formation: "choeur",
+                genre: "gregorien",
+                description: "Transmission vivante du patrimoine grégorien.",
+                keywords: ["grégorien", "tradition", "neumes", "liturgie", "manuscrit"]
+            },
+            {
+                id: 5,
+                composer: "Giovanni Pierluigi da Palestrina",
+                period: "1525-1594",
+                title: "Polyphonie Renaissance",
+                category: ["sacred", "direction"],
+                periodTag: "renaissance",
+                formation: "choeur",
+                genre: "polyphonie",
+                description: "Polyphonie palestrinienne avec le chœur Oracantat.",
+                keywords: ["palestrina", "polyphonie", "renaissance", "motet", "messe"]
+            },
+            {
+                id: 6,
+                composer: "François Couperin",
+                period: "1668-1733",
+                title: "Pièces de clavecin",
+                category: ["interpretation"],
+                periodTag: "baroque",
+                formation: "clavecin",
+                genre: "prelude",
+                description: "Art français du clavecin à travers les ordres de Couperin.",
+                keywords: ["couperin", "clavecin", "français", "ordres", "ornementation"]
+            }
+        ];
+
+        let currentData = [...repertoireData];
+        let currentView = 'grid';
+
+        // DOM Elements
+        const periodFilter = document.getElementById('periodFilter');
+        const formationFilter = document.getElementById('formationFilter');
+        const genreFilter = document.getElementById('genreFilter');
+        const searchInput = document.getElementById('searchInput');
+        const clearFilters = document.getElementById('clearFilters');
+        const categoryPills = document.querySelectorAll('.category-pill');
+        const resultsCount = document.getElementById('resultsCount');
+        const gridView = document.getElementById('gridView');
+        const listView = document.getElementById('listView');
+        const noResults = document.getElementById('noResults');
+        const viewButtons = document.querySelectorAll('.view-btn');
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateDisplay();
+            attachEventListeners();
+        });
+
+        // Event Listeners
+        function attachEventListeners() {
+            // Filters
+            periodFilter.addEventListener('change', applyFilters);
+            formationFilter.addEventListener('change', applyFilters);
+            genreFilter.addEventListener('change', applyFilters);
+            searchInput.addEventListener('input', debounce(applyFilters, 300));
+            clearFilters.addEventListener('click', clearAllFilters);
+
+            // Category pills
+            categoryPills.forEach(pill => {
+                pill.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const category = this.dataset.category;
+                    
+                    // Update active state
+                    categoryPills.forEach(p => p.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter by category
+                    filterByCategory(category);
+                });
+            });
+
+            // View toggle
+            viewButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const view = this.dataset.view;
+                    switchView(view);
+                });
+            });
+        }
+
+        // Filtering functions
+        function applyFilters() {
+            const period = periodFilter.value;
+            const formation = formationFilter.value;
+            const genre = genreFilter.value;
+            const search = searchInput.value.toLowerCase().trim();
+
+            currentData = repertoireData.filter(item => {
+                const matchesPeriod = !period || item.periodTag === period;
+                const matchesFormation = !formation || item.formation === formation;
+                const matchesGenre = !genre || item.genre === genre;
+                const matchesSearch = !search || 
+                    item.title.toLowerCase().includes(search) ||
+                    item.composer.toLowerCase().includes(search) ||
+                    item.description.toLowerCase().includes(search) ||
+                    item.keywords.some(keyword => keyword.toLowerCase().includes(search));
+
+                return matchesPeriod && matchesFormation && matchesGenre && matchesSearch;
+            });
+
+            // Show smart recommendations if filters are applied
+            showSmartRecommendations(period, formation, genre, search);
+            
+            updateDisplay();
+        }
+
+        function filterByCategory(category) {
+            if (category === 'all') {
+                currentData = [...repertoireData];
+            } else {
+                currentData = repertoireData.filter(item => 
+                    item.category.includes(category)
+                );
+            }
+            updateDisplay();
+        }
+
+        function clearAllFilters() {
+            periodFilter.value = '';
+            formationFilter.value = '';
+            genreFilter.value = '';
+            searchInput.value = '';
+            
+            // Reset category pills
+            categoryPills.forEach(p => p.classList.remove('active'));
+            document.querySelector('[data-category="all"]').classList.add('active');
+            
+            currentData = [...repertoireData];
+            updateDisplay();
+        }
+
+        // Display functions
+        function updateDisplay() {
+            updateResultsCount();
+            
+            if (currentData.length === 0) {
+                showNoResults();
+            } else {
+                hideNoResults();
+                if (currentView === 'grid') {
+                    updateGridView();
+                } else {
+                    updateListView();
+                }
+            }
+        }
+
+        function updateResultsCount() {
+            const count = currentData.length;
+            const text = count === 1 ? 'œuvre trouvée' : 'œuvres trouvées';
+            resultsCount.textContent = `${count} ${text}`;
+        }
+
+        function showNoResults() {
+            gridView.style.display = 'none';
+            listView.style.display = 'none';
+            noResults.style.display = 'block';
+        }
+
+        function hideNoResults() {
+            noResults.style.display = 'none';
+            if (currentView === 'grid') {
+                gridView.style.display = 'grid';
+                listView.style.display = 'none';
+            } else {
+                gridView.style.display = 'none';
+                listView.style.display = 'block';
+            }
+        }
+
+        function updateGridView() {
+            // Grid is already populated with static content
+            // In a real implementation, this would dynamically generate cards
+            const cards = gridView.querySelectorAll('.repertoire-card');
+            cards.forEach((card, index) => {
+                if (index < currentData.length) {
+                    card.style.display = 'block';
+                    card.classList.add('fade-in');
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function updateListView() {
+            // Populate list view with current data
+            listView.innerHTML = currentData.map(item => `
+                <div class="list-item fade-in">
+                    <div class="list-content">
+                        <div>
+                            <div class="list-title">${item.title}</div>
+                            <div class="list-subtitle">${item.composer} (${item.period})</div>
+                        </div>
+                        <div class="list-subtitle">${getCategoryLabel(item.category[0])}</div>
+                        <div class="list-subtitle">${getPeriodLabel(item.periodTag)}</div>
+                        <div class="list-subtitle">${getFormationLabel(item.formation)}</div>
+                        <div class="card-actions">
+                            <a href="#" class="action-btn btn-primary">Détails</a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function switchView(view) {
+            currentView = view;
+            
+            // Update button states
+            viewButtons.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.view === view);
+            });
+            
+            updateDisplay();
+        }
+
+        // Helper functions
+        function getCategoryLabel(category) {
+            const labels = {
+                sacred: 'Musique sacrée',
+                compositions: 'Compositions',
+                interpretation: 'Interprétation',
+                direction: 'Direction'
+            };
+            return labels[category] || category;
+        }
+
+        function getPeriodLabel(period) {
+            const labels = {
+                medieval: 'Médiéval',
+                renaissance: 'Renaissance',
+                baroque: 'Baroque',
+                classique: 'Classique',
+                romantique: 'Romantique',
+                moderne: 'Moderne',
+                contemporain: 'Contemporain'
+            };
+            return labels[period] || period;
+        }
+
+        function getFormationLabel(formation) {
+            const labels = {
+                'orgue': 'Orgue solo',
+                'clavecin': 'Clavecin',
+                'choeur': 'Chœur',
+                'soliste-choeur': 'Solistes & Chœur',
+                'orchestre': 'Orchestre',
+                'chambre': 'Musique de chambre'
+            };
+            return labels[formation] || formation;
+        }
+
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Smooth animations
+        function observeCards() {
+            const cards = document.querySelectorAll('.repertoire-card, .list-item');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationDelay = Math.random() * 0.3 + 's';
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            cards.forEach(card => observer.observe(card));
+        }
+
+        // Initialize card observations
+        setTimeout(observeCards, 100);
+    </script>
+</body>
+</html>info-circle"></i>
+                            Détails
+                        </a>
+                    </div>
+                    <div class="media-placeholder">
+                        <i class="fas fa-music"></i> Extraits audio à venir
+                    </div>
+                </div>
+
+                <!-- Buxtehude Orgue -->
+                <div class="repertoire-card fade-in" data-category="interpretation" data-period="baroque" data-formation="orgue" data-genre="prelude">
+                    <div class="card-header">
+                        <div class="composer-info">
+                            <div class="composer-name">Dietrich Buxtehude</div>
+                            <div class="composer-period">1637-1707</div>
+                        </div>
+                        <div class="category-badge">Interprétation</div>
+                    </div>
+                    <h3 class="work-title">Œuvres complètes pour orgue</h3>
+                    <div class="work-details">
+                        <div class="detail-item">
+                            <i class="fas fa-piano detail-icon"></i>
+                            <span>Orgue historique</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-star detail-icon"></i>
+                            <span>Pratique historique</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-music detail-icon"></i>
+                            <span>32 œuvres</span>
+                        </div>
+                    </div>
+                    <div class="repertoire-tags">
+                        <span class="repertoire-tag">Pratique historique</span>
+                        <span class="repertoire-tag">Nord-Allemagne</span>
+                        <span class="repertoire-tag">Virtuose</span>
+                    </div>
+                    <div class="difficulty-indicator">
+                        <span class="difficulty-label">Niveau :</span>
+                        <div class="difficulty-stars">
+                            <div class="difficulty-star filled"></div>
+                            <div class="difficulty-star filled"></div>
+                            <div class="difficulty-star filled"></div>
+                            <div class="difficulty-star filled"></div>
+                            <div class="difficulty-star"></div>
+                        </div>
+                    </div>
+                    <p class="work-description">
+                        Exploration du maître de Lübeck dans la tradition de la pratique historiquement informée. Préludes, toccatas et chorals dans leur splendeur originelle.
+                    </p>
+                    <div class="performance-count">
+                        <i class="fas fa-music"></i>
+                        <span>Maîtrise de <span class="count-number">32</span> œuvres complètes</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="#" class="action-btn btn-primary">
+                            <i class="fas fa-play"></i>
+                            Écouter
+                        </a>
+                        <a href="#" class="action-btn btn-secondary">
+                            <i class="fas fa-file-alt"></i>
+                            Partitions
+                        </a>
+                    </div>
+                    <div class="media-placeholder">
+                        <i class="fas fa-headphones"></i> Enregistrements en préparation
+                    </div>
+                </div>
+
+                <!-- Compositions originales -->
+                <div class="repertoire-card fade-in" data-category="compositions" data-period="contemporain" data-formation="orgue" data-genre="composition">
+                    <div class="card-header">
+                        <div class="composer-info">
+                            <div class="composer-name">Jean-David Waeber</div>
+                            <div class="composer-period">Compositions</div>
+                        </div>
+                        <div class="category-badge">Création</div>
+                    </div>
+                    <h3 class="work-title">Pièces pour orgue - Style néo-baroque</h3>
+                    <div class="work-details">
+                        <div class="detail-item">
+                            <i class="fas fa-feather-alt detail-icon"></i>
+                            <span>12 compositions</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-palette detail-icon"></i>
+                            <span>Style néo-baroque</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-award detail-icon"></i>
+                            <span>Œuvres originales</span>
+                        </div>
+                    </div>
+                    <div class="repertoire-tags">
+                        <span class="repertoire-tag">Création 2024</span>
+                        <span class="repertoire-tag">Première mondiale</span>
+                        <span class="repertoire-tag">Inédit</span>
+                    </div>
+                    <div class="difficulty-indicator">
+                        <span class="difficulty-label">Niveau :</span>
+                        <div class="difficulty-stars">
+                            <div class="difficulty-star filled"></div>
+                            <div class="difficulty-star filled"></div>
+                            <div class="difficulty-star filled"></div>
+                            <div class="difficulty-star"></div>
+                            <div class="difficulty-star"></div>
+                        </div>
+                    </div>
+                    <p class="work-description">
+                        Créations personnelles alliant respect de la tradition baroque et sensibilité contemporaine. Exploration des timbres et des possibilités expressives de l'orgue moderne.
+                    </p>
+                    <div class="performance-count">
+                        <i class="fas fa-feather-alt"></i>
+                        <span><span class="count-number">12</span> compositions achevées</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="#" class="action-btn btn-primary">
+                            <i class="fas fa-download"></i>
+                            Partitions
+                        </a>
+                        <a href="#" class="action-btn btn-secondary">
+                            <i class="fas fa-

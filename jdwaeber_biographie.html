@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biographie - Jean-David Waeber</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-dark: #000000;
+            --primary-light: #1a1a1a;
+            --secondary-light: #2a2a2a;
+            --accent-primary: #333333;
+            --accent-subtle: #4a4a4a;
+            --accent-gold: #c9a96e;
+            --accent-gold-light: #d4b676;
+            --text-primary: #ffffff;
+            --text-secondary: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --text-subtle: #808080;
+            --bg-section: #0a0a0a;
+            --bg-card: #151515;
+            --border-subtle: #2a2a2a;
+            --border-light: #3a3a3a;
+            
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-accent: 'Crimson Text', serif;
+            
+            /* Typography Scale */
+            --text-xs: 0.75rem;      /* 12px */
+            --text-sm: 0.875rem;     /* 14px */
+            --text-base: 1rem;       /* 16px */
+            --text-lg: 1.125rem;     /* 18px */
+            --text-xl: 1.25rem;      /* 20px */
+            --text-2xl: 1.5rem;      /* 24px */
+            --text-3xl: 1.875rem;    /* 30px */
+            --text-4xl: 2.25rem;     /* 36px */
+            --text-5xl: 3rem;        /* 48px */
+            --text-6xl: 3.75rem;     /* 60px */
+            
+            /* Line Heights */
+            --leading-tight: 1.25;
+            --leading-snug: 1.375;
+            --leading-normal: 1.5;
+            --leading-relaxed: 1.625;
+            --leading-loose: 2;
+            
+            /* Letter Spacing */
+            --tracking-tighter: -0.05em;
+            --tracking-tight: -0.025em;
+            --tracking-normal: 0em;
+            --tracking-wide: 0.025em;
+            --tracking-wider: 0.05em;
+            --tracking-widest: 0.1em;
+            
+            --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.6);
+            --shadow-intense: 0 16px 64px rgba(0, 0, 0, 0.8);
+            --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.5);
+            --shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.3);
+            
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--bg-section) 100%);
+            color: var(--text-primary);
+            line-height: var(--leading-relaxed);
+            overflow-x: hidden;
+            font-size: var(--text-base);
+            letter-spacing: var(--tracking-normal);
+            font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: var(--shadow-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            letter-spacing: var(--tracking-tight);
+        }
+
+        .logo:hover {
+            color: var(--accent-gold);
+            transform: scale(1.02);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition-smooth);
+            position: relative;
+            padding: 0.5rem 0;
+            font-size: var(--text-sm);
+            letter-spacing: var(--tracking-wide);
+            text-transform: uppercase;
+        }
+
+        .nav-menu a.active,
+        .nav-menu a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--text-primary);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(10, 10, 10, 0.9) 100%);
+            z-index: 1;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23c9a96e;stop-opacity:0.08"/><stop offset="100%" style="stop-color:%23c9a96e;stop-opacity:0.02"/></linearGradient></defs><path d="M0,400 Q300,200 600,400 T1200,400 L1200,800 L0,800 Z" fill="url(%23grad1)"/></svg>') center/cover;
+            animation: heroFloat 25s ease-in-out infinite;
+        }
+
+        @keyframes heroFloat {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-30px) scale(1.02); }
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero-text {
+            opacity: 0;
+            animation: fadeInLeft 1s ease-out 0.5s forwards;
+        }
+
+        .hero-image {
+            opacity: 0;
+            animation: fadeInRight 1s ease-out 0.8s forwards;
+        }
+
+        .hero-subtitle {
+            color: var(--accent-gold);
+            font-size: var(--text-sm);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-widest);
+            font-family: var(--font-sans);
+        }
+
+        .hero-title {
+            font-family: var(--font-serif);
+            font-size: var(--text-6xl);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: var(--leading-tight);
+            letter-spacing: var(--tracking-tighter);
+        }
+
+        .hero-description {
+            font-size: var(--text-xl);
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: var(--leading-relaxed);
+            font-weight: 400;
+            max-width: 32rem;
+        }
+
+        .hero-quote {
+            font-family: var(--font-accent);
+            font-size: var(--text-lg);
+            font-style: italic;
+            color: var(--accent-gold);
+            margin-bottom: 3rem;
+            padding-left: 2rem;
+            border-left: 3px solid var(--accent-gold);
+            line-height: var(--leading-relaxed);
+            font-weight: 400;
+        }
+
+        .portrait-container {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-intense);
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: var(--transition-smooth);
+        }
+
+        .portrait-container:hover {
+            transform: perspective(1000px) rotateY(0deg) scale(1.02);
+        }
+
+        .portrait-image {
+            width: 100%;
+            height: 600px;
+            background: linear-gradient(135deg, var(--accent-primary) 0%, var(--secondary-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            position: relative;
+        }
+
+        .portrait-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 2rem;
+            color: var(--text-primary);
+        }
+
+        @keyframes fadeInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            padding: 6rem 0;
+            background: var(--bg-section);
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: var(--text-5xl);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            line-height: var(--leading-tight);
+            letter-spacing: var(--tracking-tight);
+        }
+
+        .section-subtitle {
+            font-size: var(--text-xl);
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: var(--leading-relaxed);
+            font-weight: 400;
+        }
+
+        /* Timeline Section - Version repensée */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--accent-gold), var(--text-secondary), var(--accent-gold));
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 6rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+            display: flex;
+            align-items: center;
+            min-height: 120px;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 2rem;
+        }
+
+        /* Timeline center point */
+        .timeline-point {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            background: var(--accent-gold);
+            border: 4px solid var(--primary-dark);
+            border-radius: 50%;
+            z-index: 10;
+            box-shadow: 0 0 0 4px var(--accent-gold), var(--shadow-subtle);
+            transition: var(--transition-smooth);
+        }
+
+        .timeline-item:hover .timeline-point {
+            transform: translate(-50%, -50%) scale(1.3);
+            box-shadow: 0 0 0 8px rgba(201, 169, 110, 0.3), var(--shadow-intense);
+        }
+
+        /* Timeline year badge */
+        .timeline-year {
+            position: absolute;
+            left: 50%;
+            top: -15px;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--accent-gold);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            box-shadow: var(--shadow-subtle);
+            border: 2px solid var(--accent-gold);
+            white-space: nowrap;
+            z-index: 5;
+        }
+
+        /* Content positioning */
+        .timeline-content {
+            width: 42%;
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-card);
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        /* Left side items */
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: auto;
+            margin-left: 0;
+        }
+
+        /* Right side items */
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: auto;
+            margin-right: 0;
+            text-align: right;
+        }
+
+        /* Connection arrows - Left side */
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -12px;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            border-left: 12px solid var(--bg-card);
+        }
+
+        /* Connection arrows - Right side */
+        .timeline-item:nth-child(even) .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -12px;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            border-right: 12px solid var(--bg-card);
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-intense);
+            border-color: var(--border-light);
+        }
+
+        .timeline-title {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .timeline-location {
+            color: var(--accent-gold);
+            font-weight: 500;
+            margin-bottom: 1.2rem;
+            font-size: 0.9rem;
+        }
+
+        .timeline-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .timeline-item:nth-child(even) .timeline-details {
+            justify-content: flex-end;
+        }
+
+        .detail-tag {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-secondary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: var(--text-xs);
+            border: 1px solid var(--border-subtle);
+            transition: var(--transition-smooth);
+            font-weight: 500;
+            letter-spacing: var(--tracking-wide);
+            text-transform: uppercase;
+            font-family: var(--font-sans);
+        }
+
+        .detail-tag:hover {
+            background: rgba(201, 169, 110, 0.15);
+            color: var(--accent-gold);
+            border-color: var(--accent-gold);
+        }
+
+        /* Masters Section */
+        .masters-section {
+            padding: 6rem 0;
+            background: var(--primary-dark);
+        }
+
+        .masters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .master-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid var(--border-subtle);
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .master-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--accent-gold) 0%, transparent 70%);
+            opacity: 0;
+            transition: var(--transition-smooth);
+            transform: scale(0);
+        }
+
+        .master-card:hover::before {
+            opacity: 0.03;
+            transform: scale(1);
+        }
+
+        .master-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-intense);
+            border-color: var(--border-light);
+        }
+
+        .master-avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        .master-name {
+            font-family: var(--font-serif);
+            font-size: var(--text-xl);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            line-height: var(--leading-snug);
+            letter-spacing: var(--tracking-tight);
+        }
+
+        .master-specialty {
+            color: var(--accent-gold);
+            font-size: var(--text-sm);
+            margin-bottom: 1rem;
+            font-weight: 500;
+            font-style: italic;
+            font-family: var(--font-accent);
+        }
+
+        .master-location {
+            color: var(--text-muted);
+            font-size: var(--text-xs);
+            letter-spacing: var(--tracking-wide);
+            text-transform: uppercase;
+            font-weight: 600;
+            font-family: var(--font-sans);
+        }
+
+        /* Philosophy Section */
+        .philosophy-section {
+            padding: 6rem 0;
+            background: var(--bg-section);
+            position: relative;
+        }
+
+        .philosophy-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .philosophy-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .philosophy-text .highlight {
+            color: var(--accent-gold);
+            font-weight: 500;
+        }
+
+        .philosophy-visual {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            border: 1px solid var(--border-subtle);
+            position: relative;
+        }
+
+        .philosophy-icon {
+            font-size: 4rem;
+            color: var(--accent-gold);
+            margin-bottom: 2rem;
+        }
+
+        .philosophy-quote {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Current Activities */
+        .activities-section {
+            padding: 6rem 0;
+            background: var(--primary-dark);
+        }
+
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .activity-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid var(--border-subtle);
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-card);
+            border-color: var(--border-light);
+        }
+
+        .activity-icon {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .activity-title {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .activity-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .activity-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* Responsive Timeline */
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+                transform: none;
+            }
+
+            .timeline-item {
+                margin-bottom: 3rem;
+            }
+
+            .timeline-content {
+                width: calc(100% - 80px);
+                margin-left: 80px !important;
+                margin-right: 0 !important;
+                text-align: left !important;
+            }
+
+            .timeline-content::after {
+                left: -12px !important;
+                right: auto !important;
+                border-left: 12px solid var(--bg-card) !important;
+                border-right: none !important;
+            }
+
+            .timeline-point {
+                left: 30px !important;
+                transform: translateY(-50%) !important;
+            }
+
+            .timeline-year {
+                left: 30px !important;
+                transform: none !important;
+                top: -50px;
+            }
+
+            .timeline-details {
+                justify-content: flex-start !important;
+            }
+
+            .philosophy-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition-smooth);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Jean-David Waeber</a>
+            <ul class="nav-menu">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#biographie" class="active">Biographie</a></li>
+                <li><a href="#repertoire">Répertoire</a></li>
+                <li><a href="#agenda">Agenda</a></li>
+                <li><a href="#galerie">Galerie</a></li>
+                <li><a href="#media">Média</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <p class="hero-subtitle">Organiste & Chef de Chœur</p>
+                <h1 class="hero-title">Jean-David Waeber</h1>
+                <p class="hero-description">
+                    Maître de chapelle de la cathédrale de Sion, je dédie ma vie à la transmission du patrimoine musical sacré. 
+                    Mon parcours, des conservatoires suisses aux maîtres européens, nourrit une approche authentique de la musique ancienne.
+                </p>
+                <blockquote class="hero-quote">
+                    "La musique sacrée nous connecte à une tradition millénaire et nous élève vers l'essentiel."
+                </blockquote>
+            </div>
+            <div class="hero-image">
+                <div class="portrait-container">
+                    <div class="portrait-image">
+                        <i class="fas fa-user" style="font-size: 4rem;"></i>
+                        <div class="portrait-overlay">
+                            <p><strong>Portrait professionnel</strong></p>
+                            <p>À l'orgue de la cathédrale de Sion</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Parcours de formation</h2>
+                <p class="section-subtitle">
+                    De Lausanne à Milan, un cheminement musical guidé par les plus grands maîtres de l'orgue et de la musique ancienne
+                </p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-point"></div>
+                    <div class="timeline-year">Études initiales</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Conservatoire de Lausanne</h3>
+                        <p class="timeline-location">Lausanne, Suisse</p>
+                        <p class="timeline-description">
+                            Premiers pas dans l'univers de l'orgue avec Jean-François Vaucher. Formation solide dans la tradition organistique suisse, 
+                            découverte du répertoire classique et baroque.
+                        </p>
+                        <div class="timeline-details">
+                            <span class="detail-tag">Orgue classique</span>
+                            <span class="detail-tag">Jean-François Vaucher</span>
+                            <span class="detail-tag">Formation initiale</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-point"></div>
+                    <div class="timeline-year">Bachelor & Master</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Haute École de Musique de Lausanne</h3>
+                        <p class="timeline-location">Lausanne, Suisse</p>
+                        <p class="timeline-description">
+                            Approfondissement technique et musical avec Maurizio Croci. Obtention du Bachelor puis du Master de concert. 
+                            Parallèlement, études de Lettres à l'Université de Fribourg, enrichissant la dimension culturelle et historique.
+                        </p>
+                        <div class="timeline-details">
+                            <span class="detail-tag">Master de concert</span>
+                            <span class="detail-tag">Maurizio Croci</span>
+                            <span class="detail-tag">Études de Lettres</span>
+                            <span class="detail-tag">Université de Fribourg</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-point"></div>
+                    <div class="timeline-year">Spécialisation</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Civica Scuola di Musica de Milan</h3>
+                        <p class="timeline-location">Milan, Italie</p>
+                        <p class="timeline-description">
+                            Perfectionnement dans l'étude de la musique ancienne avec Lorenzo Ghielmi, maître reconnu de l'interprétation 
+                            historiquement informée. Obtention du diplôme de spécialisation en musique ancienne.
+                        </p>
+                        <div class="timeline-details">
+                            <span class="detail-tag">Musique ancienne</span>
+                            <span class="detail-tag">Lorenzo Ghielmi</span>
+                            <span class="detail-tag">Pratique historique</span>
+                            <span class="detail-tag">Diplôme Milan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-point"></div>
+                    <div class="timeline-year">Direction chorale</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Haute École d'Arts de Zürich</h3>
+                        <p class="timeline-location">Zürich, Suisse</p>
+                        <p class="timeline-description">
+                            Perfectionnement en direction chorale auprès de Markus Utz. Obtention du CAS (Certificate of Advanced Studies) 
+                            en direction chorale, complétant ainsi sa formation polyvalente.
+                        </p>
+                        <div class="timeline-details">
+                            <span class="detail-tag">Direction chorale</span>
+                            <span class="detail-tag">Markus Utz</span>
+                            <span class="detail-tag">CAS Zürich</span>
+                            <span class="detail-tag">Formation complémentaire</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-point"></div>
+                    <div class="timeline-year">Certifications</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Domaines complémentaires</h3>
+                        <p class="timeline-location">Suisse et Europe</p>
+                        <p class="timeline-description">
+                            Certifications dans des domaines voisins de la musique d'orgue : chant, improvisation et direction chorale. 
+                            Formation complète couvrant tous les aspects de la musique sacrée et liturgique.
+                        </p>
+                        <div class="timeline-details">
+                            <span class="detail-tag">Chant</span>
+                            <span class="detail-tag">Improvisation</span>
+                            <span class="detail-tag">Direction chorale</span>
+                            <span class="detail-tag">Musique liturgique</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Masters Section -->
+    <section class="masters-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Mes maîtres</h2>
+                <p class="section-subtitle">
+                    Masterclasses et rencontres avec les plus grandes personnalités de l'orgue et de la musique ancienne
+                </p>
+            </div>
+            
+            <div class="masters-grid">
+                <div class="master-card">
+                    <div class="master-avatar">LT</div>
+                    <h3 class="master-name">Luigi Ferdinando Tagliavini</h3>
+                    <p class="master-specialty">Maître de l'orgue historique</p>
+                    <p class="master-location">Italie</p>
+                </div>
+
+                <div class="master-card">
+                    <div class="master-avatar">MR</div>
+                    <h3 class="master-name">Michael Radulescu</h3>
+                    <p class="master-specialty">École viennoise d'orgue</p>
+                    <p class="master-location">Autriche</p>
+                </div>
+
+                <div class="master-card">
+                    <div class="master-avatar">PD</div>
+                    <h3 class="master-name">Pieter van Dijk</h3>
+                    <p class="master-specialty">Tradition hollandaise</p>
+                    <p class="master-location">Pays-Bas</p>
+                </div>
+
+                <div class="master-card">
+                    <div class="master-avatar">JG</div>
+                    <h3 class="master-name">José Luis González Uriol</h3>
+                    <p class="master-specialty">École espagnole d'orgue</p>
+                    <p class="master-location">Espagne</p>
+                </div>
+
+                <div class="master-card">
+                    <div class="master-avatar">MS</div>
+                    <h3 class="master-name">Maurizio Salerno</h3>
+                    <p class="master-specialty">Musique ancienne italienne</p>
+                    <p class="master-location">Italie</p>
+                </div>
+
+                <div class="master-card">
+                    <div class="master-avatar">MSp</div>
+                    <h3 class="master-name">Matthias Spaeter</h3>
+                    <p class="master-specialty">Tradition germanique</p>
+                    <p class="master-location">Allemagne</p>
+                </div>
+
+                <div class="master-card">
+                    <div class="master-avatar">HD</div>
+                    <h3 class="master-name">Hans Davidson</h3>
+                    <p class="master-specialty">Interprétation baroque</p>
+                    <p class="master-location">Europe</p>
+                </div>
+
+                <div class="master-card">
+                    <div class="master-avatar">LG</div>
+                    <h3 class="master-name">Lorenzo Ghielmi</h3>
+                    <p class="master-specialty">Musique ancienne & Improvisation</p>
+                    <p class="master-location">Milan, Italie</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="philosophy-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Ma philosophie artistique</h2>
+                <p class="section-subtitle">
+                    Une approche authentique de la musique sacrée, nourrie par la tradition et ouverte à la création
+                </p>
+            </div>
+            
+            <div class="philosophy-content">
+                <div class="philosophy-text">
+                    <p>
+                        Ma démarche artistique s'enracine dans une <span class="highlight">approche historiquement informée</span> 
+                        de la musique sacrée. Formé auprès des plus grands maîtres européens, j'ai développé une vision qui 
+                        unit respect de la tradition et sensibilité contemporaine.
+                    </p>
+                    <p style="margin-top: 1.5rem;">
+                        Du <span class="highlight">chant grégorien millénaire</span> aux œuvres de nos contemporains, 
+                        chaque répertoire demande une approche spécifique. Mon travail consiste à retrouver l'esprit 
+                        originel de chaque œuvre tout en la rendant vivante pour notre époque.
+                    </p>
+                    <p style="margin-top: 1.5rem;">
+                        L'<span class="highlight">enseignement et la transmission</span> occupent une place centrale dans 
+                        ma mission. À travers l'École maîtrisienne de la cathédrale de Sion, je forme une nouvelle 
+                        génération de musiciens conscients de leur héritage et créateurs de l'avenir.
+                    </p>
+                    <p style="margin-top: 1.5rem;">
+                        Cette vision trouve son accomplissement dans les <span class="highlight">cantates mensuelles de Bach</span>, 
+                        véritable laboratoire où tradition liturgique et excellence musicale se rencontrent dans un dialogue 
+                        spirituel authentique.
+                    </p>
+                </div>
+                
+                <div class="philosophy-visual">
+                    <div class="philosophy-icon">
+                        <i class="fas fa-infinity"></i>
+                    </div>
+                    <blockquote class="philosophy-quote">
+                        "La musique sacrée est un pont entre les siècles. Elle nous relie à ceux qui nous ont précédés 
+                        et nous engage envers ceux qui nous suivront."
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Current Activities Section -->
+    <section class="activities-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Mes activités actuelles</h2>
+                <p class="section-subtitle">
+                    Direction, interprétation, composition et enseignement au service de la musique sacrée
+                </p>
+            </div>
+            
+            <div class="activities-grid">
+                <div class="activity-card">
+                    <div class="activity-icon">
+                        <i class="fas fa-church"></i>
+                    </div>
+                    <h3 class="activity-title">Maître de chapelle</h3>
+                    <p class="activity-description">
+                        Direction de la Maîtrise cathédrale de Sion et du chœur Oracantat. Responsable de la musique liturgique 
+                        et des concerts sacrés de la cathédrale.
+                    </p>
+                    <div class="activity-stats">
+                        <div class="stat">
+                            <span class="stat-number">12</span>
+                            <span class="stat-label">concerts/an</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">52</span>
+                            <span class="stat-label">liturgies</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="activity-card">
+                    <div class="activity-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3 class="activity-title">Projet Bach</h3>
+                    <p class="activity-description">
+                        Présentation mensuelle d'une cantate de Johann Sebastian Bach, projet phare de la Maîtrise cathédrale 
+                        offrant une approche intégrale de l'œuvre du Cantor.
+                    </p>
+                    <div class="activity-stats">
+                        <div class="stat">
+                            <span class="stat-number">12</span>
+                            <span class="stat-label">cantates/an</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">5</span>
+                            <span class="stat-label">années</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="activity-card">
+                    <div class="activity-icon">
+                        <i class="fas fa-piano"></i>
+                    </div>
+                    <h3 class="activity-title">Interprétation</h3>
+                    <p class="activity-description">
+                        Pratique régulière de la musique de chambre au clavecin et à l'orgue. Récitals et concerts 
+                        dans la tradition de la pratique historiquement informée.
+                    </p>
+                    <div class="activity-stats">
+                        <div class="stat">
+                            <span class="stat-number">20</span>
+                            <span class="stat-label">récitals/an</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">3</span>
+                            <span class="stat-label">instruments</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="activity-card">
+                    <div class="activity-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="activity-title">Enseignement</h3>
+                    <p class="activity-description">
+                        Formation musicale au Lycée-Collège des Creusets et direction de l'École maîtrisienne 
+                        rassemblant une trentaine de jeunes musiciens.
+                    </p>
+                    <div class="activity-stats">
+                        <div class="stat">
+                            <span class="stat-number">30</span>
+                            <span class="stat-label">élèves</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">2</span>
+                            <span class="stat-label">institutions</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="activity-card">
+                    <div class="activity-icon">
+                        <i class="fas fa-feather-alt"></i>
+                    </div>
+                    <h3 class="activity-title">Composition</h3>
+                    <p class="activity-description">
+                        Création d'œuvres originales pour orgue, chœur et formations de chambre, 
+                        alliant respect de la tradition et sensibilité contemporaine.
+                    </p>
+                    <div class="activity-stats">
+                        <div class="stat">
+                            <span class="stat-number">15</span>
+                            <span class="stat-label">compositions</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">3</span>
+                            <span class="stat-label">créations 2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="activity-card">
+                    <div class="activity-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="activity-title">Direction d'ensembles</h3>
+                    <p class="activity-description">
+                        Direction du chœur Oracantat de Sion et des différents ensembles de la Maîtrise cathédrale, 
+                        du chant grégorien à la polyphonie contemporaine.
+                    </p>
+                    <div class="activity-stats">
+                        <div class="stat">
+                            <span class="stat-number">3</span>
+                            <span class="stat-label">ensembles</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">45</span>
+                            <span class="stat-label">choristes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Timeline animation
+        function animateTimeline() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { 
+                threshold: 0.2,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            timelineItems.forEach(item => {
+                observer.observe(item);
+            });
+        }
+
+        // Master cards hover effects
+        function enhanceMasterCards() {
+            const masterCards = document.querySelectorAll('.master-card');
+            
+            masterCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-15px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        }
+
+        // Activity cards staggered animation
+        function animateActivities() {
+            const activityCards = document.querySelectorAll('.activity-card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 100);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            activityCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'all 0.6s ease-out';
+                observer.observe(card);
+            });
+        }
+
+        // Parallax effect for hero
+        function initParallax() {
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const parallax = document.querySelector('.hero-bg');
+                if (parallax) {
+                    parallax.style.transform = `translateY(${scrolled * 0.3}px)`;
+                }
+            });
+        }
+
+        // Smooth scrolling for navigation
+        function initSmoothScrolling() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Counter animation for stats
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = parseInt(entry.target.textContent);
+                        let current = 0;
+                        const increment = target / 50;
+                        
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= target) {
+                                entry.target.textContent = target;
+                                clearInterval(timer);
+                            } else {
+                                entry.target.textContent = Math.floor(current);
+                            }
+                        }, 30);
+                        
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            counters.forEach(counter => {
+                observer.observe(counter);
+            });
+        }
+
+        // Philosophy section reveal animation
+        function animatePhilosophy() {
+            const philosophyElements = document.querySelectorAll('.philosophy-text p, .philosophy-visual');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 200);
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            philosophyElements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+                element.style.transition = 'all 0.8s ease-out';
+                observer.observe(element);
+            });
+        }
+
+        // Master cards interactive enhancement
+        function enhanceMasterInteractions() {
+            const masters = [
+                { name: 'Luigi Ferdinando Tagliavini', specialty: 'Légende de l\'orgue historique italien' },
+                { name: 'Michael Radulescu', specialty: 'Maître de l\'école viennoise moderne' },
+                { name: 'Pieter van Dijk', specialty: 'Virtuose de la tradition hollandaise' },
+                { name: 'José Luis González Uriol', specialty: 'Ambassadeur de l\'école espagnole' },
+                { name: 'Maurizio Salerno', specialty: 'Expert en musique ancienne italienne' },
+                { name: 'Matthias Spaeter', specialty: 'Héritier de la tradition germanique' },
+                { name: 'Hans Davidson', specialty: 'Maître de l\'interprétation baroque' },
+                { name: 'Lorenzo Ghielmi', specialty: 'Référence mondiale en musique ancienne' }
+            ];
+
+            const masterCards = document.querySelectorAll('.master-card');
+            
+            masterCards.forEach((card, index) => {
+                card.addEventListener('click', function() {
+                    const master = masters[index];
+                    if (master) {
+                        // Future: Open modal with detailed information
+                        console.log(`Détails sur ${master.name}: ${master.specialty}`);
+                    }
+                });
+            });
+        }
+
+        // Initialize all animations and interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            animateTimeline();
+            enhanceMasterCards();
+            animateActivities();
+            initParallax();
+            initSmoothScrolling();
+            animateCounters();
+            animatePhilosophy();
+            enhanceMasterInteractions();
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(0, 0, 0, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(0, 0, 0, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
